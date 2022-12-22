@@ -1,1 +1,8 @@
-site_name: My Docs
+site_name: WQH的个人网站
+site_url: https://amadeuscx.github.io/website/
+site_author: WQH
+site_description: WQH的个人网站
+
+
+theme:
+  name: material
