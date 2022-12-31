@@ -6,26 +6,20 @@ site_description: WQH的个人网站
 
 theme:
   name: material
-  
-  theme:
-    palette: 
-
-      - scheme: default
-        toggle:
-          icon: material/brightness-7 
-          name: 切换暗色
-      - scheme: slate
-        toggle:
-          icon: material/brightness-4
-          name: 切换亮色
-
-
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: 切换暗色
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换亮色
   features:
     - navigation.tabs
     - navigation.top
     - navigation.indexes
     - navigation.expand
-
   language: zh
 
 
