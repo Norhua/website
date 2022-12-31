@@ -35,3 +35,15 @@ nav:
     - blog/index.md
   - 其他:
     - misc/index.md
+
+
+
+markdown_extensions:
+  # latex 公式扩展
+  - pymdownx.arithmatex:
+    generic: true
+
+extra_javascript:
+  # latex 公式js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
