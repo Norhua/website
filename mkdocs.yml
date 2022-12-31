@@ -39,11 +39,10 @@ nav:
 
 
 markdown_extensions:
-  # latex 公式扩展
-  - pymdownx.arithmatex:
+  - pymdownx.arithmatex: # latex 支持
     generic: true
 
 extra_javascript:
-  # latex 公式js
+  # latex 公式 js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
