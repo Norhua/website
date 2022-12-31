@@ -7,6 +7,15 @@ site_description: WQH的个人网站
 theme:
   name: material
 
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - navigation.expand
+
+  language: zh
+  copyright: Copyright &copy; 2022 WQH
+
 
 nav:
   - 笔记:
