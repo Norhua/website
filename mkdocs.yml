@@ -6,6 +6,19 @@ site_description: WQH的个人网站
 
 theme:
   name: material
+  
+  theme:
+    palette: 
+
+      - scheme: default
+        toggle:
+          icon: material/brightness-7 
+          name: 切换暗色
+      - scheme: slate
+        toggle:
+          icon: material/brightness-4
+          name: 切换亮色
+
 
   features:
     - navigation.tabs
@@ -14,7 +27,9 @@ theme:
     - navigation.expand
 
   language: zh
-  copyright: Copyright &copy; 2022 WQH
+
+
+copyright: Copyright &copy; 2022 WQH
 
 
 nav:
