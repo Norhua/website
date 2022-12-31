@@ -19,8 +19,10 @@ theme:
 
 nav:
   - 笔记:
+    - note/index.md
     - tools:
-      - Makefile
-
+      - Makefile: note/Makefile/Makefile.md
   - 博客:
+    - blog/index.md
   - 其他:
+    - misc/index.md
