@@ -31,6 +31,8 @@ nav:
     - note/index.md
     - tools:
       - Makefile: note/Makefile/Makefile.md
+    - Languages:
+      - Python基础: note/python基础/python基础.md
   - 博客:
     - blog/index.md
   - 其他:
