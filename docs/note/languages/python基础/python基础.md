@@ -1,4 +1,5 @@
 # Python基础
+> 来源：https://docs.python.org/zh-cn/3/tutorial/index.html
 
 ## 数字
 
@@ -101,23 +102,23 @@ TypeError: 'str' object does not support item assignment
 !!! info "参见"
 
     [文本序列类型 --- str](https://docs.python.org/zh-cn/3/library/stdtypes.html#textseq)
-
+    
     字符串是 *序列类型* ，支持序列类型的各种操作。
-
+    
     [字符串的方法](https://docs.python.org/zh-cn/3/library/stdtypes.html#string-methods)
-
+    
     字符串支持很多变形与查找方法。
-
+    
     [格式字符串字面值](https://docs.python.org/zh-cn/3/reference/lexical_analysis.html#f-strings)
-
+    
     内嵌表达式的字符串字面值。
-
+    
     [格式字符串语法](https://docs.python.org/zh-cn/3/library/string.html#formatstrings)
-
+    
     使用 [`str.format()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format) 格式化字符串。
-
+    
     [printf 风格的字符串格式化](https://docs.python.org/zh-cn/3/library/stdtypes.html#old-string-formatting)
-
+    
     这里详述了用 `%` 运算符格式化字符串的操作
 
 
@@ -214,4 +215,133 @@ The value of i is 65536
 ...
 0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
 ```
+## 流程控制工具
+### for
+Python 的 for 语句与 C 或 Pascal 中的不同。Python 的 for 语句不迭代算术递增数值（如 Pascal），或是给予用户定义迭代步骤和暂停条件的能力（如 C），而是迭代列表或字符串等任意序列，元素的迭代顺序与在序列中出现的顺序一致。 例如：
+```python
+>>> # Measure some strings:
+... words = ['cat', 'window', 'defenestrate']
+>>> for w in words:
+...    print(w, len(w))
+...
+cat 3
+window 6
+defenestrate 12
+```
+遍历集合时修改集合的内容，会很容易生成错误的结果。因此不能直接进行循环，而是应遍历该集合的副本或创建新的集合：
+```python
+# Create a sample collection
+users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
+
+# Strategy:  Iterate over a copy
+for user, status in users.copy().items():
+    if status == 'inactive':
+        del users[user]
+
+# Strategy:  Create a new collection
+active_users = {}
+for user, status in users.items():
+    if status == 'active':
+        active_users[user] = status
+```
+### range()
+
+内置函数 [`range()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#range) 常用于遍历数字序列，该函数可以生成算术级数：
+
+```python
+>>> for i in range(5):
+...     print(i)
+... 
+0
+1
+2
+3
+4
+```
+
+生成的序列不包含给定的终止数值；`range(10)` 生成 10 个值，这是一个长度为 10 的序列，其中的元素索引都是合法的。range 可以不从 0 开始，还可以按指定幅度递增（递增幅度称为 '步进'，支持负数）：
+
+```python
+>>> list(range(5, 10))
+[5, 6, 7, 8, 9]
+
+>>> list(range(0, 10, 3))
+[0, 3, 6, 9]
+
+>>> list(range(-10, -100, -30))
+[-10, -40, -70]
+```
+
+如果只输出 range，会出现意想不到的结果：
+
+```python
+>>> range(10)
+range(0, 10)
+```
+
+[`range()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#range) 返回对象的操作和列表很像，但其实这两种对象不是一回事。迭代时，该对象基于所需序列返回连续项，并没有生成真正的列表，从而节省了空间。
+
+这种对象称为可迭代对象 [iterable](https://docs.python.org/zh-cn/3/glossary.html#term-iterable)，函数或程序结构可通过该对象获取连续项，直到所有元素全部迭代完毕。[`for`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for) 语句就是这样的架构，[`sum()`](https://docs.python.org/zh-cn/3/library/functions.html#sum) 是一种把可迭代对象作为参数的函数：
+
+```python
+>>> sum(range(4))  # 0 + 1 + 2 + 3
+6
+```
+
+下文将介绍更多返回可迭代对象或把可迭代对象当作参数的函数。 在 [数据结构](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#tut-structures) 这一章节中，我们将讨论有关 [`list()`](https://docs.python.org/zh-cn/3/library/stdtypes.html#list) 的更多细节。
+
+### 循环中的 `break`、`continue` 语句及 `else` 子句
+
+[`break`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#break) 语句和 C 中的类似，用于跳出最近的 [`for`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for) 或 [`while`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#while) 循环。
+
+循环语句支持 `else` 子句；[`for`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#for) 循环中，可迭代对象中的元素全部循环完毕，或 [`while`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#while) 循环的条件为假时，执行该子句；[`break`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#break) 语句终止循环时，不执行该子句。 请看下面这个查找素数的循环示例：
+
+```python
+for n in range(2, 10):
+>>>     for x in range(2, n):
+...         if n % x == 0:
+...             print(n, 'equals', x, '*', n//x)
+...             break
+...     else:
+...         # loop fell through without finding a factor
+...         print(n, 'is a prime number')
+... 
+2 is a prime number
+3 is a prime number
+4 equals 2 * 2
+5 is a prime number
+6 equals 2 * 3
+7 is a prime number
+8 equals 2 * 4
+9 equals 3 * 3
+```
+
+与 [`if`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#if) 语句相比，循环的 `else` 子句更像 [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 的 `else` 子句： [`try`](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#try) 的 `else` 子句在未触发异常时执行，循环的 `else` 子句则在未运行 `break` 时执行。`try` 语句和异常详见 [异常的处理](https://docs.python.org/zh-cn/3/tutorial/errors.html#tut-handling)。
+
+[`continue`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#continue) 语句也借鉴自 C 语言，表示继续执行循环的下一次迭代
+
+### pass 语句
+
+[`pass`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#pass) 语句不执行任何操作。语法上需要一个语句，但程序不实际执行任何动作时，可以使用该语句。例如：
+
+```python
+while True:
+    pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+```
+
+下面这段代码创建了一个最小的类：
+
+```python
+class MyEmptyClass:
+    pass
+```
+
+[`pass`](https://docs.python.org/zh-cn/3/reference/simple_stmts.html#pass) 还可以用作函数或条件子句的占位符，让开发者聚焦更抽象的层次。此时，程序直接忽略 `pass`：
+
+```python
+def initlog(*args):
+    pass   # Remember to implement this!
+```
+
+
 
