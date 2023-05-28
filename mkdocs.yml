@@ -37,7 +37,7 @@ nav:
   #   - tools:
   #     - Makefile: note/tools/makefile/makefile.md
   - 快速笔记:
-    - start
+    - quick-note/230506-start.md
     - windows替换Caps与Esc按键: quick-note/230511-windows替换Caps与Esc按键.md
     - 记录一次Arch显卡驱动配置: quick-note/230511-记录一次Arch显卡驱动配置.md
     - windows取消系统自带快捷键: quick-note/230512-windows取消系统自带快捷键.md
