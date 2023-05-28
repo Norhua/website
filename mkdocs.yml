@@ -27,22 +27,34 @@ copyright: Copyright &copy; 2023 WQH
 
 
 nav:
-  - 笔记:
-    - note/index.md
-    - 数据结构: note/数据结构/数据结构.md
-    - 算法:
-      - 每日一题: note/算法/每日一题/每日一题.md
-    - Languages:
-      - Python基础: note/languages/python基础/python基础.md
-    - tools:
-      - Makefile: note/tools/makefile/makefile.md
+  # - 笔记:
+  #   - note/index.md
+  #   - 数据结构: note/数据结构/数据结构.md
+  #   - 算法:
+  #     - 每日一题: note/算法/每日一题/每日一题.md
+  #   - Languages:
+  #     - Python基础: note/languages/python基础/python基础.md
+  #   - tools:
+  #     - Makefile: note/tools/makefile/makefile.md
+  - 快速笔记:
+    - start
+    - windows替换Caps与Esc按键: quick-note/230511-windows替换Caps与Esc按键.md
+    - 记录一次Arch显卡驱动配置: quick-note/230511-记录一次Arch显卡驱动配置.md
+    - windows取消系统自带快捷键: quick-note/230512-windows取消系统自带快捷键.md
+    - 使用docker上的mysql: quick-note/230513-使用docker上的mysql.md
+    - 解决mybatis一条sql语句执行两次的问题: quick-note/230514-解决mybatis一条sql语句执行两次的问题.md
+    - arch上的mpv配置: quick-note/230515-arch上的mpv配置.md
+    - 使用docker上的nginx: quick-note/230516-使用docker上的nginx.md
+    - 文件管理器pcmanfm: quick-note/230518-文件管理器pcmanfm.md
+    - csapplab获取: quick-note/230518-文件管理器pcmanfm.md
+    - 修改wps-linux语言为中文: quick-note/230522-修改wps-linux语言为中文.md
   - 博客:
     - blog/index.md
   - 其他:
     - misc/index.md
     - Start list: misc/star-list.md
     - Q&A: 'misc/Q&A.md'
-    #- test: misc/test.md
+    # - test: misc/test.md
 
 
 markdown_extensions:
